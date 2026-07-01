@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c63a8"/>
+      <stop offset="100%" stop-color="#0f3a5f"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="512" height="512" rx="110" fill="url(#bg)"/>
+  <!-- medical cross -->
+  <rect x="100" y="196" width="312" height="120" rx="28" fill="#ffffff"/>
+  <rect x="196" y="100" width="120" height="312" rx="28" fill="#ffffff"/>
+  <!-- vaccine drop accent -->
+  <circle cx="372" cy="372" r="54" fill="#e0622a"/>
+  <path d="M372 322 C 396 356, 396 384, 372 394 C 348 384, 348 356, 372 322 Z" fill="#e0622a"/>
+</svg>
