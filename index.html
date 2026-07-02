@@ -21,22 +21,24 @@
 <meta property="og:locale" content="en_US">
 
 <!-- ============================================================
-     GOOGLE ADS CONVERSION TRACKING
-     Replace AW-CONVERSION_ID below with your real Google Ads
-     conversion ID/label once your campaign is set up, then
-     uncomment the two script blocks. The page already fires
-     trackConversion('call') and trackConversion('directions')
-     on button clicks — see the <script> near the bottom.
+     GOOGLE ADS CONVERSION TRACKING + GA4 CLICK TRACKING
+     GA4 is active (Measurement ID: G-N4NBLP0DMM).
+     Once you have a Google Ads conversion ID, replace AW-CONVERSION_ID
+     below with it (see Google Ads > Tools > Conversions) — it's
+     currently a harmless placeholder that just no-ops.
+     Every button click already calls trackConversion(label) — see the
+     script near the bottom of the page — which fires a GA4 event, a
+     Google Ads conversion, AND an email-notification webhook (see that
+     script for the webhook setup instructions).
 ============================================================= -->
-<!--
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-CONVERSION_ID"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N4NBLP0DMM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+  gtag('config', 'G-N4NBLP0DMM');
   gtag('config', 'AW-CONVERSION_ID');
 </script>
--->
 
 <!-- Structured data for local SEO / Quality Score relevance -->
 <script type="application/ld+json">
@@ -603,16 +605,49 @@
 </div>
 
 <script>
-  // Fires a Google Ads conversion event if gtag is loaded (see commented
-  // snippet in <head> — wire up your AW-CONVERSION_ID there first).
-  // Safe to leave as-is; it silently no-ops until gtag exists.
+  // ============================================================
+  // INSTANT CLICK NOTIFICATIONS (free, via Google Apps Script + Gmail)
+  // 1. Create a Google Sheet, go to Extensions > Apps Script, paste the
+  //    doPost() script from the setup instructions you were given, and
+  //    deploy it as a Web App ("Execute as: Me", "Who has access: Anyone").
+  // 2. Paste the resulting web app URL below, replacing the placeholder.
+  // 3. Leave this as a plain string (not wrapped in quotes-inside-quotes
+  //    issues) — it should look like:
+  //    'https://script.google.com/macros/s/AKfycb.../exec'
+  // Until you fill this in, the fetch below silently fails and does
+  // nothing — safe to leave as-is.
+  // ============================================================
+  const CLICK_WEBHOOK_URL = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+
   function trackConversion(label){
+    // 1) GA4 event — shows up in Analytics > Reports > Realtime and
+    //    Engagement > Events, broken out by button label.
     if (typeof gtag === 'function') {
+      gtag('event', label, { 'event_category': 'lead_button_click' });
+
+      // 2) Google Ads conversion — wire up AW-CONVERSION_ID in <head> first.
       gtag('event', 'conversion', {
         'send_to': 'AW-CONVERSION_ID/CALL_OR_CLICK_LABEL',
         'event_callback': function(){}
       });
     }
+
+    // 3) Instant email notification via the Apps Script webhook.
+    if (CLICK_WEBHOOK_URL && CLICK_WEBHOOK_URL.indexOf('PASTE_YOUR') === -1) {
+      try {
+        fetch(CLICK_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({
+            label: label,
+            time: new Date().toISOString(),
+            page: window.location.href
+          })
+        });
+      } catch (e) { /* fail silently — never block the tel:/maps link */ }
+    }
+
     if (typeof console !== 'undefined') {
       console.log('[lead event]', label);
     }
