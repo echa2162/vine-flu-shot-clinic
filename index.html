@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flu Shots in Hollywood, CA | Walk In Today — Vine Flu Shot Clinic</title>
-<meta name="description" content="Walk-in flu shots in Hollywood, CA. No appointment needed. Most insurance covers your flu shot at $0 cost. Vine Flu Shot Clinic, 1253 N Vine St. Call (323) 957-9446.">
+<title>Tetanus, Hepatitis B & Shingles Vaccines in Hollywood, CA — Vine Vaccination Clinic</title>
+<meta name="description" content="Tetanus, Hepatitis B, and Shingles vaccines in Hollywood, CA. Walk in for a tetanus shot, or call ahead for Hepatitis B or Shingles. Vine Vaccination Clinic, 1253 N Vine St. Call (323) 957-9446.">
 <meta name="robots" content="index, follow">
 
 <!-- Favicons / app icons -->
@@ -15,21 +15,23 @@
 <meta name="theme-color" content="#0f3a5f">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Walk-In Flu Shots in Hollywood, CA — Vine Flu Shot Clinic">
-<meta property="og:description" content="No appointment needed. Most insurance covers your flu shot at $0 cost. Open Mon–Fri, 9 AM–6 PM.">
+<meta property="og:title" content="Tetanus, Hepatitis B & Shingles Vaccines in Hollywood, CA — Vine Vaccination Clinic">
+<meta property="og:description" content="Walk in for a tetanus shot, or call ahead for Hepatitis B or Shingles. Most insurance accepted. Open Mon–Fri, 9 AM–6 PM.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 
 <!-- ============================================================
      GOOGLE ADS CONVERSION TRACKING + GA4 CLICK TRACKING
-     GA4 is active (Measurement ID: G-N4NBLP0DMM).
-     Once you have a Google Ads conversion ID, replace AW-CONVERSION_ID
-     below with it (see Google Ads > Tools > Conversions) — it's
-     currently a harmless placeholder that just no-ops.
+     GA4 is active (Measurement ID: G-N4NBLP0DMM) — reused from the
+     prior campaign; each event still records its own page URL, so
+     you can filter this site's traffic separately in GA4 if needed.
+     Once you have a Google Ads conversion ID for THIS campaign,
+     replace AW-CONVERSION_ID below (Google Ads > Tools > Conversions)
+     — it's currently a harmless placeholder that just no-ops.
      Every button click already calls trackConversion(label) — see the
      script near the bottom of the page — which fires a GA4 event, a
-     Google Ads conversion, AND an email-notification webhook (see that
-     script for the webhook setup instructions).
+     Google Ads conversion, AND an email-notification webhook (same
+     Google Sheet / Apps Script webhook as before).
 ============================================================= -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4NBLP0DMM"></script>
 <script>
@@ -45,7 +47,7 @@
 {
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
-  "name": "Vine Flu Shot Clinic",
+  "name": "Vine Vaccination Clinic",
   "medicalSpecialty": "Immunization",
   "telephone": "+13239579446",
   "priceRange": "$$",
@@ -162,12 +164,12 @@
     padding:6px 14px;border-radius:999px;margin-bottom:16px;
   }
   h1{
-    font-size:40px;line-height:1.12;margin:0 0 14px;color:var(--navy);
+    font-size:38px;line-height:1.14;margin:0 0 14px;color:var(--navy);
     letter-spacing:-0.3px;
   }
   h1 .hl{color:var(--accent);}
   .hero p.lead{
-    font-size:18px;color:var(--gray);margin:0 0 24px;max-width:520px;
+    font-size:18px;color:var(--gray);margin:0 0 24px;max-width:540px;
   }
   .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
   .reassure{font-size:13.5px;color:var(--gray);}
@@ -188,12 +190,20 @@
     box-shadow:var(--shadow);padding:26px;
   }
   .hero-card h3{margin:0 0 4px;font-size:18px;color:var(--navy);}
-  .hero-card .price{
-    display:flex;align-items:baseline;gap:8px;margin:10px 0 16px;
+  .hero-card .sub-note{font-size:13.5px;color:var(--gray);margin-bottom:14px;}
+  .vax-row{
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+    padding:10px 0;border-bottom:1px dashed var(--line);
   }
-  .hero-card .price .num{font-size:38px;font-weight:800;color:var(--green);}
-  .hero-card .price .lbl{font-size:14px;color:var(--gray);font-weight:600;}
-  .hero-card ul{margin:0 0 18px;padding:0;list-style:none;}
+  .vax-row:last-of-type{border-bottom:none;}
+  .vax-row .vax-name{font-weight:700;font-size:14.5px;color:var(--ink);}
+  .vax-tag{
+    flex:none;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;
+    white-space:nowrap;
+  }
+  .vax-tag.walkin{background:#e3f5e9;color:var(--green);}
+  .vax-tag.call{background:#fdeae0;color:var(--accent-dark);}
+  .hero-card ul{margin:14px 0 18px;padding:0;list-style:none;}
   .hero-card li{
     display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink);
     padding:7px 0;border-bottom:1px dashed var(--line);
@@ -216,7 +226,7 @@
 
   .alt{background:var(--blue-light);}
 
-  /* ---------- Benefits grid ---------- */
+  /* ---------- Benefits / vaccine grid ---------- */
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
   .card{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius);
@@ -228,7 +238,8 @@
     font-size:22px;margin-bottom:14px;
   }
   .card h3{margin:0 0 6px;font-size:17px;color:var(--navy);}
-  .card p{margin:0;color:var(--gray);font-size:14.5px;}
+  .card p{margin:0 0 12px;color:var(--gray);font-size:14.5px;}
+  .card .vax-tag{display:inline-block;}
 
   /* ---------- Steps ---------- */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step;}
@@ -326,13 +337,13 @@
     .steps{grid-template-columns:1fr;}
     .insurance-wrap{grid-template-columns:1fr;}
     .visit-grid{grid-template-columns:1fr;}
-    h1{font-size:32px;}
+    h1{font-size:30px;}
     .header-cta{display:none;}
     .sticky-bar{display:flex;}
     body{padding-bottom:70px;}
   }
   @media (max-width:480px){
-    h1{font-size:27px;}
+    h1{font-size:25px;}
     .hero p.lead{font-size:16px;}
     section{padding:40px 0;}
   }
@@ -360,8 +371,8 @@
         </svg>
       </div>
       <div>
-        <div class="name">Vine Flu Shot Clinic</div>
-        <div class="sub">Hollywood's Neighborhood Flu Shot Clinic Since 2003</div>
+        <div class="name">Vine Vaccination Clinic</div>
+        <div class="sub">Hollywood's Neighborhood Vaccination Clinic Since 2003</div>
       </div>
     </div>
     <div class="header-cta">
@@ -375,14 +386,14 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">Flu Season Is Here — Hollywood, CA 90038</span>
-      <h1>Walk-In Flu Shots in Hollywood. <span class="hl">No Appointment Needed.</span></h1>
-      <p class="lead">Get vaccinated today at Vine Flu Shot Clinic on Vine Street. Most insurance plans cover your flu shot at $0 cost, and our pharmacist gets you in and out in minutes.</p>
+      <span class="eyebrow">Now Available — Hollywood, CA 90038</span>
+      <h1>Tetanus, Hepatitis B &amp; Shingles Vaccines in <span class="hl">Hollywood.</span></h1>
+      <p class="lead">Get protected at Vine Vaccination Clinic. Walk in for your tetanus shot — or call ahead to schedule your Hepatitis B or Shingles vaccine. Most insurance covers your visit at $0 cost.</p>
       <div class="hero-ctas">
         <a class="btn btn-accent" href="tel:+13239579446" onclick="trackConversion('call_hero')">📞 Call (323) 957-9446</a>
         <a class="btn btn-outline" href="https://maps.google.com/?q=1253+N+Vine+St+Ste+11+Los+Angeles+CA+90038" target="_blank" rel="noopener" onclick="trackConversion('directions_hero')">📍 Get Directions</a>
       </div>
-      <p class="reassure"><b>Walk-ins welcome</b> · No appointment required · Open Mon–Fri, 9 AM–6 PM</p>
+      <p class="reassure"><b>Walk in for tetanus</b> · Call ahead for Hepatitis B &amp; Shingles · Open Mon–Fri, 9 AM–6 PM</p>
 
       <div class="trust-row">
         <div class="trust-chip"><span class="dot"></span>Serving Hollywood Since 2003</div>
@@ -392,38 +403,81 @@
     </div>
 
     <div class="hero-card">
-      <h3>Your Walk-In Flu Shot</h3>
-      <div class="price"><span class="num">$0</span><span class="lbl">with most insurance plans</span></div>
+      <h3>Which Vaccine Do You Need?</h3>
+      <p class="sub-note">Tap call to confirm availability and get scheduled.</p>
+
+      <div class="vax-row">
+        <span class="vax-name">Tetanus (Tdap/Td)</span>
+        <span class="vax-tag walkin">Walk-In</span>
+      </div>
+      <div class="vax-row">
+        <span class="vax-name">Hepatitis B</span>
+        <span class="vax-tag call">Call Ahead</span>
+      </div>
+      <div class="vax-row">
+        <span class="vax-name">Shingles (Shingrix)</span>
+        <span class="vax-tag call">Call Ahead</span>
+      </div>
+
       <ul>
-        <li><span class="check">✓</span> No appointment — walk in any time we're open</li>
         <li><span class="check">✓</span> Medicare Part B &amp; D, Medi-Cal, and most commercial plans accepted</li>
         <li><span class="check">✓</span> Cash price available if you're uninsured — ask our pharmacist</li>
-        <li><span class="check">✓</span> Most visits take just a few minutes</li>
         <li><span class="check">✓</span> Administered by a licensed pharmacist</li>
       </ul>
-      <a class="btn btn-accent btn-block" href="tel:+13239579446" onclick="trackConversion('call_card')">Call to Confirm &amp; Come In</a>
+      <a class="btn btn-accent btn-block" href="tel:+13239579446" onclick="trackConversion('call_card')">Call to Check Availability</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR VACCINES ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Our Vaccines</div>
+      <h2>Three Vaccines, One Trusted Clinic</h2>
+      <p>Each vaccine has its own path in the door — here's what to expect for each.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <div class="icon">🩹</div>
+        <h3>Tetanus (Tdap/Td)</h3>
+        <p>Protects against tetanus, diphtheria, and whooping cough. Recommended every 10 years — or sooner after a deep cut, puncture wound, or animal bite.</p>
+        <span class="vax-tag walkin">Walk-In — No Appointment</span>
+      </div>
+      <div class="card">
+        <div class="icon">🛡️</div>
+        <h3>Hepatitis B</h3>
+        <p>Protects against Hepatitis B, a serious liver infection. Often recommended for healthcare workers, travelers, and those with increased exposure risk.</p>
+        <span class="vax-tag call">Call Ahead to Schedule</span>
+      </div>
+      <div class="card">
+        <div class="icon">💊</div>
+        <h3>Shingles (Shingrix)</h3>
+        <p>Recommended for adults 50 and older to prevent shingles and its complications. Given as a 2-dose series, a few months apart.</p>
+        <span class="vax-tag call">Call Ahead to Schedule</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ WHY ============ -->
-<section>
+<section class="alt">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">Why Vine Flu Shot Clinic</div>
-      <h2>The Easiest Flu Shot in Hollywood</h2>
-      <p>A real neighborhood clinic on Vine Street — not a hospital, not a chain, not a wait.</p>
+      <div class="kicker">Why Vine Vaccination Clinic</div>
+      <h2>Protection Made Simple in Hollywood</h2>
+      <p>A real neighborhood clinic on Vine Street — not a hospital, not a chain, not a hassle.</p>
     </div>
     <div class="grid3">
       <div class="card">
-        <div class="icon">⚡</div>
-        <h3>Walk In, No Wait</h3>
-        <p>Skip the appointment. Flu shots are walk-in — just stop by during business hours and our pharmacist will take care of you.</p>
+        <div class="icon">📅</div>
+        <h3>Walk In or Call Ahead</h3>
+        <p>Tetanus shots are walk-in, no appointment needed. Hepatitis B and Shingles just need a quick call first to confirm stock and set a time.</p>
       </div>
       <div class="card">
         <div class="icon">💳</div>
         <h3>$0 With Most Insurance</h3>
-        <p>Medicare Part B &amp; D, Medi-Cal, and most major commercial plans cover your flu shot at no cost to you. We verify on the spot.</p>
+        <p>Medicare Part B &amp; D, Medi-Cal, and most major commercial plans cover recommended vaccines. We verify your coverage before your visit.</p>
       </div>
       <div class="card">
         <div class="icon">📍</div>
@@ -450,17 +504,17 @@
 </section>
 
 <!-- ============ HOW IT WORKS ============ -->
-<section class="alt">
+<section>
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">How It Works</div>
-      <h2>Get Your Flu Shot in 3 Simple Steps</h2>
+      <h2>Getting Vaccinated in 3 Simple Steps</h2>
     </div>
     <div class="steps">
       <div class="step">
         <div class="num">1</div>
-        <h3>Walk In</h3>
-        <p>Visit us Monday–Friday, 9 AM–6 PM, at 1253 N Vine St, Suite 11. No appointment necessary.</p>
+        <h3>Call or Walk In</h3>
+        <p>Walk in anytime for a tetanus shot. For Hepatitis B or Shingles, give us a quick call first to confirm availability and set a time.</p>
       </div>
       <div class="step">
         <div class="num">2</div>
@@ -470,19 +524,19 @@
       <div class="step">
         <div class="num">3</div>
         <h3>Get Vaccinated</h3>
-        <p>Our pharmacist administers your flu shot in just a few minutes. You're protected and on your way.</p>
+        <p>Our pharmacist administers your vaccine in just a few minutes. You're protected and on your way.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ INSURANCE ============ -->
-<section id="insurance">
+<section id="insurance" class="alt">
   <div class="wrap insurance-wrap">
     <div>
       <div class="kicker">Coverage</div>
       <h2>Insurance We Accept</h2>
-      <p style="color:var(--gray);font-size:16px;margin-bottom:18px;">Most major insurance plans cover your flu shot at no cost to you. Bring your card and we'll handle the rest.</p>
+      <p style="color:var(--gray);font-size:16px;margin-bottom:18px;">Most major insurance plans cover recommended vaccines at little to no cost. Coverage varies by vaccine and plan — we verify your specific benefits when you call or visit.</p>
       <ul class="pill-list">
         <li>Medicare Part B</li>
         <li>Medicare Part D</li>
@@ -490,54 +544,54 @@
         <li>Most Commercial Plans</li>
         <li>Cash Price Available</li>
       </ul>
-      <div class="note-box">Not sure if your plan is covered? Call us at <a href="tel:+13239579446" style="color:var(--navy);font-weight:700;" onclick="trackConversion('call_insurance')">(323) 957-9446</a> and we'll check before you come in.</div>
+      <div class="note-box">Not sure if your plan covers your vaccine? Call us at <a href="tel:+13239579446" style="color:var(--navy);font-weight:700;" onclick="trackConversion('call_insurance')">(323) 957-9446</a> and we'll check before you come in.</div>
     </div>
     <div class="quote-card">
       <p class="q">"Caring, honest, respectful, and friendly — that's our commitment to every patient who walks through our door."</p>
       <div class="who">Roseanne Papoyan, PharmD</div>
-      <div class="role">Pharmacist · Vine Flu Shot Clinic</div>
+      <div class="role">Pharmacist · Vine Vaccination Clinic</div>
     </div>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="alt">
+<section>
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Common Questions</div>
-      <h2>Flu Shot FAQs</h2>
+      <h2>Vaccine FAQs</h2>
     </div>
     <div class="faq">
       <details open>
-        <summary>Do I need an appointment for a flu shot?</summary>
-        <p>No. Flu shots are walk-in at Vine Flu Shot Clinic — just stop by Monday through Friday, 9 AM to 6 PM. No appointment necessary.</p>
+        <summary>Do I need an appointment?</summary>
+        <p>Tetanus (Tdap/Td) shots are walk-in — no appointment needed. Hepatitis B and Shingles vaccines require calling ahead so we can confirm stock and schedule your visit.</p>
       </details>
       <details>
-        <summary>How much does a flu shot cost?</summary>
-        <p>Most major insurance plans — including Medicare Part B, Medicare Part D, Medi-Cal, and commercial plans — cover your flu shot at $0 cost. If you're uninsured, a cash price is available; ask our pharmacist.</p>
+        <summary>I have a cut or puncture wound — do I need a tetanus shot?</summary>
+        <p>If it's been more than 5 years since your last tetanus shot and you have a deep or dirty wound, a booster is often recommended. Walk in any time we're open — no appointment necessary. For serious wounds, seek emergency care first.</p>
       </details>
       <details>
-        <summary>How long does it take?</summary>
-        <p>Most visits take just a few minutes from check-in to vaccination. There's rarely a wait.</p>
+        <summary>How many doses of the Shingles vaccine do I need?</summary>
+        <p>Shingrix is given as a 2-dose series, typically 2 to 6 months apart. Call ahead to schedule both doses.</p>
       </details>
       <details>
-        <summary>Who administers the flu shot?</summary>
-        <p>Our licensed pharmacist, Roseanne Papoyan, PharmD, administers vaccinations on-site.</p>
+        <summary>Who needs the Hepatitis B vaccine?</summary>
+        <p>Hepatitis B vaccination is often recommended for healthcare workers, travelers to certain countries, and anyone with increased exposure risk. Call us and we can help you figure out if it's right for you.</p>
+      </details>
+      <details>
+        <summary>How much do these vaccines cost?</summary>
+        <p>Most major insurance plans — including Medicare Part B, Medicare Part D, Medi-Cal, and commercial plans — cover recommended vaccines at little to no cost. If you're uninsured, a cash price is available; ask our pharmacist.</p>
       </details>
       <details>
         <summary>Where is the clinic located?</summary>
         <p>We're at 1253 N Vine St, Suite 11, Los Angeles, CA 90038 — the corner of Vine &amp; Fountain, steps from Capitol Records and the Hollywood Pantages Theatre.</p>
-      </details>
-      <details>
-        <summary>What should I bring?</summary>
-        <p>Bring a photo ID and your insurance card if you have one. We'll verify your coverage before your shot.</p>
       </details>
     </div>
   </div>
 </section>
 
 <!-- ============ VISIT / MAP ============ -->
-<section id="visit">
+<section id="visit" class="alt">
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Visit Us</div>
@@ -573,8 +627,8 @@
 <section>
   <div class="wrap">
     <div class="final-cta">
-      <h2>Don't Wait for Flu Season to Catch Up With You</h2>
-      <p>Walk in to Vine Flu Shot Clinic today — most insurance covers your flu shot at $0, and you'll be in and out in minutes.</p>
+      <h2>Don't Wait to Get Protected</h2>
+      <p>Walk in for your tetanus shot, or call ahead to schedule your Hepatitis B or Shingles vaccine — most insurance covers your visit at $0.</p>
       <div class="hero-ctas">
         <a class="btn btn-accent" href="tel:+13239579446" onclick="trackConversion('call_final')">📞 Call (323) 957-9446</a>
         <a class="btn btn-outline on-dark" href="https://maps.google.com/?q=1253+N+Vine+St+Ste+11+Los+Angeles+CA+90038" target="_blank" rel="noopener" onclick="trackConversion('directions_final')">📍 Get Directions</a>
@@ -587,7 +641,7 @@
 <footer>
   <div class="wrap">
     <div>
-      <div class="f-brand">Vine Flu Shot Clinic</div>
+      <div class="f-brand">Vine Vaccination Clinic</div>
       <p class="f-meta">1253 N Vine St, Suite 11, Los Angeles, CA 90038 · (323) 957-9446 · Open Mon–Fri, 9 AM–6 PM<br>A service of Vine Discount Pharmacy &amp; Medical Supply, a Good Neighbor Pharmacy® member.</p>
     </div>
     <div class="f-right">
@@ -607,15 +661,9 @@
 <script>
   // ============================================================
   // INSTANT CLICK NOTIFICATIONS (free, via Google Apps Script + Gmail)
-  // 1. Create a Google Sheet, go to Extensions > Apps Script, paste the
-  //    doPost() script from the setup instructions you were given, and
-  //    deploy it as a Web App ("Execute as: Me", "Who has access: Anyone").
-  // 2. Paste the resulting web app URL below, replacing the placeholder.
-  // 3. Leave this as a plain string (not wrapped in quotes-inside-quotes
-  //    issues) — it should look like:
-  //    'https://script.google.com/macros/s/AKfycb.../exec'
-  // Until you fill this in, the fetch below silently fails and does
-  // nothing — safe to leave as-is.
+  // Reuses the same Apps Script webhook set up for the flu shot site.
+  // Every click logs which page it came from, so entries from this
+  // vaccine clinic site are distinguishable from the old flu site.
   // ============================================================
   const CLICK_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbz0VxNhdbTQLfJIz_ApYbleCL__U0Rb0m8F410SW6z4O7A85Okx6LJzv0x0LEyjwVy1jQ/exec';
 
@@ -635,6 +683,8 @@
     // 3) Instant email notification via the Apps Script webhook.
     if (CLICK_WEBHOOK_URL && CLICK_WEBHOOK_URL.indexOf('PASTE_YOUR') === -1) {
       try {
+        var params = new URLSearchParams(window.location.search);
+        var isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
         fetch(CLICK_WEBHOOK_URL, {
           method: 'POST',
           mode: 'no-cors',
@@ -642,7 +692,14 @@
           body: JSON.stringify({
             label: label,
             time: new Date().toISOString(),
-            page: window.location.href
+            page: window.location.href,
+            referrer: document.referrer || '(direct/none)',
+            device: isMobile ? 'Mobile' : 'Desktop',
+            gclid: params.get('gclid') || '',
+            utm_source: params.get('utm_source') || '',
+            utm_medium: params.get('utm_medium') || '',
+            utm_campaign: params.get('utm_campaign') || '',
+            utm_term: params.get('utm_term') || ''
           })
         });
       } catch (e) { /* fail silently — never block the tel:/maps link */ }
