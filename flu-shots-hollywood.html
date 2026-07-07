@@ -633,8 +633,13 @@
     }
 
     // 3) Instant email notification via the Apps Script webhook.
+    //    Captures which ad/keyword drove the click (gclid + UTM params),
+    //    where they came from (referrer), and device type — not just the
+    //    button label and timestamp.
     if (CLICK_WEBHOOK_URL && CLICK_WEBHOOK_URL.indexOf('PASTE_YOUR') === -1) {
       try {
+        var params = new URLSearchParams(window.location.search);
+        var isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
         fetch(CLICK_WEBHOOK_URL, {
           method: 'POST',
           mode: 'no-cors',
@@ -642,7 +647,14 @@
           body: JSON.stringify({
             label: label,
             time: new Date().toISOString(),
-            page: window.location.href
+            page: window.location.href,
+            referrer: document.referrer || '(direct/none)',
+            device: isMobile ? 'Mobile' : 'Desktop',
+            gclid: params.get('gclid') || '',
+            utm_source: params.get('utm_source') || '',
+            utm_medium: params.get('utm_medium') || '',
+            utm_campaign: params.get('utm_campaign') || '',
+            utm_term: params.get('utm_term') || ''
           })
         });
       } catch (e) { /* fail silently — never block the tel:/maps link */ }
@@ -653,6 +665,9 @@
     }
   }
 </script>
+
+<!-- Vercel Analytics (active automatically once deployed on Vercel) -->
+<script defer src="/_vercel/insights/script.js"></script>
 
 </body>
 </html>
