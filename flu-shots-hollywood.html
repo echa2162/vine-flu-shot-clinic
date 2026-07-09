@@ -139,12 +139,26 @@
     padding:14px 24px;border-radius:999px;font-weight:700;font-size:16px;
     border:2px solid transparent;cursor:pointer;white-space:nowrap;
   }
-  .btn-accent{background:var(--accent);color:#fff;}
-  .btn-accent:hover{background:var(--accent-dark);}
-  .btn-outline{background:#fff;color:var(--navy);border-color:var(--navy);}
+  .btn-accent{
+    background:var(--accent);color:#fff;
+    box-shadow:0 8px 20px rgba(224,98,42,.38),0 2px 6px rgba(224,98,42,.25);
+    transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
+  }
+  .btn-accent:hover{background:var(--accent-dark);transform:translateY(-1px);box-shadow:0 10px 26px rgba(224,98,42,.46);}
+  .btn-accent:active{transform:translateY(0);box-shadow:0 4px 14px rgba(224,98,42,.4);}
+  .btn-outline{background:#fff;color:var(--navy);border-color:var(--navy);transition:background .15s ease;}
   .btn-outline:hover{background:var(--blue-light);}
   .btn-sm{padding:10px 16px;font-size:14px;}
   .btn-block{width:100%;}
+  .hero-ctas .btn-accent{padding:17px 32px;font-size:17.5px;}
+
+  @keyframes pulseRing{
+    0%{box-shadow:0 8px 20px rgba(224,98,42,.38),0 0 0 0 rgba(224,98,42,.45);}
+    70%{box-shadow:0 8px 20px rgba(224,98,42,.38),0 0 0 14px rgba(224,98,42,0);}
+    100%{box-shadow:0 8px 20px rgba(224,98,42,.38),0 0 0 0 rgba(224,98,42,0);}
+  }
+  .btn-pulse{animation:pulseRing 2.2s ease-out infinite;}
+  .btn-pulse:hover{animation-play-state:paused;}
 
   /* ---------- Hero ---------- */
   .hero{
@@ -379,7 +393,7 @@
       <h1>Walk-In Flu Shots in Hollywood. <span class="hl">No Appointment Needed.</span></h1>
       <p class="lead">Get vaccinated today at Vine Flu Shot Clinic on Vine Street. Most insurance plans cover your flu shot at $0 cost, and our pharmacist gets you in and out in minutes.</p>
       <div class="hero-ctas">
-        <a class="btn btn-accent" href="tel:+13239579446" onclick="trackConversion('call_hero')">📞 Call (323) 957-9446</a>
+        <a class="btn btn-accent btn-pulse" href="tel:+13239579446" onclick="trackConversion('call_hero')">📞 Call (323) 957-9446</a>
         <a class="btn btn-outline" href="https://maps.google.com/?q=1253+N+Vine+St+Ste+11+Los+Angeles+CA+90038" target="_blank" rel="noopener" onclick="trackConversion('directions_hero')">📍 Get Directions</a>
       </div>
       <p class="reassure"><b>Walk-ins welcome</b> · No appointment required · Open Mon–Fri, 9 AM–6 PM</p>
@@ -601,7 +615,7 @@
 <!-- ============ STICKY MOBILE BAR ============ -->
 <div class="sticky-bar">
   <a class="btn btn-outline btn-sm" href="https://maps.google.com/?q=1253+N+Vine+St+Ste+11+Los+Angeles+CA+90038" target="_blank" rel="noopener" onclick="trackConversion('directions_sticky')">📍 Directions</a>
-  <a class="btn btn-accent btn-sm" href="tel:+13239579446" onclick="trackConversion('call_sticky')">📞 Call Now</a>
+  <a class="btn btn-accent btn-sm btn-pulse" href="tel:+13239579446" onclick="trackConversion('call_sticky')">📞 Call Now</a>
 </div>
 
 <script>
