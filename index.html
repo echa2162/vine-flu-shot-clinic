@@ -12,13 +12,18 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#0f3a5f">
+<meta name="theme-color" content="#12100d">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Tetanus, Hepatitis B & Shingles Vaccines in Hollywood, CA — Vine Vaccination Clinic">
 <meta property="og:description" content="Walk in for a tetanus shot, or call ahead for Hepatitis B or Shingles. Most insurance accepted. Open Mon–Fri, 9 AM–6 PM.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
+
+<!-- Fonts: Fraunces (editorial display serif) + Inter (workhorse sans) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,460;0,9..144,560;0,9..144,650;0,9..144,780;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <!-- ============================================================
      GOOGLE ADS CONVERSION TRACKING + GA4 CLICK TRACKING
@@ -73,293 +78,274 @@
 
 <style>
   :root{
-    --navy:#0f3a5f;
-    --blue:#1c63a8;
-    --blue-light:#eaf3fb;
-    --accent:#e0622a;
-    --accent-dark:#c14f1d;
-    --green:#1d8a4c;
-    --ink:#1a2433;
-    --gray:#5b6776;
-    --line:#e3e8ee;
-    --bg:#ffffff;
-    --radius:14px;
-    --shadow:0 8px 24px rgba(15,58,95,0.10);
+    --paper:#f5efe3;
+    --paper-2:#ece3d0;
+    --ink:#161310;
+    --ink-soft:#5a5346;
+    --line:rgba(22,19,16,0.16);
+    --line-dark:rgba(255,255,255,0.18);
+    --dark:#14110d;
+    --dark-2:#211a12;
+    --flame:#ff5a34;
+    --flame-dark:#d43f1c;
+    --gold:#e7ab3c;
+    --teal:#0f6e5c;
+    --cream:#fbf7ee;
+    --shadow:0 26px 50px -24px rgba(20,17,13,0.45);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     color:var(--ink);
-    background:var(--bg);
+    background:var(--paper);
     line-height:1.55;
-    padding-bottom:64px; /* room for sticky mobile bar */
+    padding-bottom:66px;
+    -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
-  .center{text-align:center;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;position:relative;}
+  .serif{font-family:'Fraunces',serif;}
+
+  .grain{position:relative;}
+  .grain::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:radial-gradient(rgba(20,17,13,0.12) 1px, transparent 1px);
+    background-size:16px 16px;
+  }
+  .band-dark .grain::before{
+    background-image:radial-gradient(rgba(255,255,255,0.09) 1px, transparent 1px);
+  }
 
   /* ---------- Top bar ---------- */
   .topbar{
-    background:var(--navy);
-    color:#fff;
-    font-size:14px;
+    background:var(--dark);color:var(--cream);font-size:13px;
+    font-family:'Inter',sans-serif;letter-spacing:.2px;
+    border-bottom:1px solid rgba(255,255,255,.08);
   }
   .topbar .wrap{
     display:flex;justify-content:space-between;align-items:center;
-    padding:9px 20px;flex-wrap:wrap;gap:6px;
+    padding:9px 24px;flex-wrap:wrap;gap:6px;
   }
-  .topbar .badge{opacity:.92;}
-  .topbar a.phone{font-weight:700;letter-spacing:.2px;}
+  .topbar .badge{opacity:.82;}
+  .topbar a.phone{font-weight:700;color:var(--flame);}
 
   /* ---------- Header ---------- */
-  header.site{
-    padding:18px 0;
-    border-bottom:1px solid var(--line);
-  }
-  header.site .wrap{
-    display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
-  }
-  .brand{display:flex;align-items:center;gap:10px;}
+  header.site{padding:20px 0;background:var(--paper);border-bottom:1px solid var(--line);}
+  header.site .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:12px;}
   .brand .mark{
-    width:42px;height:42px;border-radius:10px;
-    background:linear-gradient(135deg,var(--blue),var(--navy));
+    width:44px;height:44px;border-radius:3px;background:var(--dark);
     color:#fff;display:flex;align-items:center;justify-content:center;
     font-weight:800;font-size:18px;flex:none;
   }
-  .brand .name{font-weight:800;font-size:18px;color:var(--navy);line-height:1.15;}
-  .brand .sub{font-size:12.5px;color:var(--gray);font-weight:500;}
-  .header-cta{
-    display:flex;gap:10px;flex-wrap:wrap;
-  }
+  .brand .name{font-family:'Fraunces',serif;font-weight:650;font-size:20px;color:var(--ink);line-height:1.1;letter-spacing:-.2px;}
+  .brand .sub{font-size:11.5px;color:var(--ink-soft);font-weight:600;text-transform:uppercase;letter-spacing:.6px;}
+  .header-cta{display:flex;gap:10px;flex-wrap:wrap;}
 
   /* ---------- Buttons ---------- */
   .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    padding:14px 24px;border-radius:999px;font-weight:700;font-size:16px;
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    padding:15px 26px;border-radius:3px;font-weight:700;font-size:15px;
     border:2px solid transparent;cursor:pointer;white-space:nowrap;
+    font-family:'Inter',sans-serif;letter-spacing:.2px;
+    transition:transform .15s ease,box-shadow .15s ease,background .15s ease,color .15s ease;
   }
-  .btn-accent{
-    background:var(--accent);color:#fff;
-    box-shadow:0 8px 20px rgba(224,98,42,.38),0 2px 6px rgba(224,98,42,.25);
-    transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
-  }
-  .btn-accent:hover{background:var(--accent-dark);transform:translateY(-1px);box-shadow:0 10px 26px rgba(224,98,42,.46);}
-  .btn-accent:active{transform:translateY(0);box-shadow:0 4px 14px rgba(224,98,42,.4);}
-  .btn-outline{background:#fff;color:var(--navy);border-color:var(--navy);transition:background .15s ease;}
-  .btn-outline:hover{background:var(--blue-light);}
-  .btn-sm{padding:10px 16px;font-size:14px;}
+  .btn-accent{background:var(--flame);color:#fff;border-color:var(--flame);box-shadow:0 10px 24px -6px rgba(255,90,52,.55);}
+  .btn-accent:hover{background:var(--flame-dark);border-color:var(--flame-dark);transform:translateY(-2px);}
+  .btn-accent:active{transform:translateY(0);}
+  .btn-outline{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:var(--paper);}
+  .btn-outline.on-dark{color:#fff;border-color:rgba(255,255,255,.55);}
+  .btn-outline.on-dark:hover{background:#fff;color:var(--dark);}
+  .btn-sm{padding:10px 17px;font-size:13.5px;}
   .btn-block{width:100%;}
-  .hero-ctas .btn-accent{padding:17px 32px;font-size:17.5px;}
+  .hero-ctas .btn-accent{padding:18px 30px;font-size:16.5px;}
 
   @keyframes pulseRing{
-    0%{box-shadow:0 8px 20px rgba(224,98,42,.38),0 0 0 0 rgba(224,98,42,.45);}
-    70%{box-shadow:0 8px 20px rgba(224,98,42,.38),0 0 0 14px rgba(224,98,42,0);}
-    100%{box-shadow:0 8px 20px rgba(224,98,42,.38),0 0 0 0 rgba(224,98,42,0);}
+    0%{box-shadow:0 10px 24px -6px rgba(255,90,52,.55),0 0 0 0 rgba(255,90,52,.5);}
+    70%{box-shadow:0 10px 24px -6px rgba(255,90,52,.55),0 0 0 14px rgba(255,90,52,0);}
+    100%{box-shadow:0 10px 24px -6px rgba(255,90,52,.55),0 0 0 0 rgba(255,90,52,0);}
   }
   .btn-pulse{animation:pulseRing 2.2s ease-out infinite;}
   .btn-pulse:hover{animation-play-state:paused;}
 
   /* ---------- Hero ---------- */
-  .hero{
-    background:
-      radial-gradient(1100px 480px at 80% -10%, rgba(28,99,168,0.10), transparent 60%),
-      linear-gradient(180deg, var(--blue-light), #fff 70%);
-    padding:48px 0 40px;
+  .hero{position:relative;overflow:hidden;background:var(--dark);color:var(--cream);padding:64px 0 96px;}
+  .hero::after{
+    content:"";position:absolute;right:-12%;top:-30%;width:60%;height:160%;
+    background:linear-gradient(160deg, rgba(255,90,52,.30), rgba(255,90,52,0) 60%);
+    transform:rotate(8deg);pointer-events:none;
   }
-  .hero-grid{
-    display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;
-  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:end;position:relative;z-index:1;}
   .eyebrow{
-    display:inline-block;background:#fff;border:1px solid var(--line);
-    color:var(--blue);font-weight:700;font-size:13px;letter-spacing:.3px;
-    padding:6px 14px;border-radius:999px;margin-bottom:16px;
+    display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-weight:700;font-size:12.5px;
+    letter-spacing:1.4px;text-transform:uppercase;margin-bottom:22px;
   }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--gold);display:inline-block;}
   h1{
-    font-size:38px;line-height:1.14;margin:0 0 14px;color:var(--navy);
-    letter-spacing:-0.3px;
+    font-family:'Fraunces',serif;font-weight:560;font-size:clamp(36px,4.8vw,60px);
+    line-height:1.04;margin:0 0 20px;color:#fff;letter-spacing:-1px;
   }
-  h1 .hl{color:var(--accent);}
-  .hero p.lead{
-    font-size:18px;color:var(--gray);margin:0 0 24px;max-width:540px;
-  }
-  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
-  .reassure{font-size:13.5px;color:var(--gray);}
-  .reassure b{color:var(--ink);}
+  h1 .hl{color:var(--flame);font-style:italic;font-weight:650;}
+  .hero p.lead{font-size:18.5px;color:#d9d1c2;margin:0 0 30px;max-width:500px;font-weight:400;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px;}
+  .reassure{font-size:13.5px;color:#a99f8d;}
+  .reassure b{color:#fff;font-weight:700;}
 
-  .trust-row{
-    display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;
-  }
-  .trust-chip{
-    display:flex;align-items:center;gap:7px;background:#fff;
-    border:1px solid var(--line);border-radius:999px;padding:8px 14px;
-    font-size:13.5px;font-weight:600;color:var(--navy);box-shadow:var(--shadow);
-  }
-  .trust-chip .dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex:none;}
-
-  .hero-card{
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-    box-shadow:var(--shadow);padding:26px;
-  }
-  .hero-card h3{margin:0 0 4px;font-size:18px;color:var(--navy);}
-  .hero-card .sub-note{font-size:13.5px;color:var(--gray);margin-bottom:14px;}
-  .vax-row{
-    display:flex;justify-content:space-between;align-items:center;gap:10px;
-    padding:10px 0;border-bottom:1px dashed var(--line);
-  }
+  /* ---------- Ticket-style hero card ---------- */
+  .ticket{background:var(--cream);color:var(--ink);border-radius:4px;padding:30px 30px 26px;position:relative;box-shadow:var(--shadow);}
+  .ticket::before,.ticket::after{content:"";position:absolute;width:26px;height:26px;border-radius:50%;background:var(--dark);top:50%;transform:translateY(-50%);}
+  .ticket::before{left:-13px;}
+  .ticket::after{right:-13px;}
+  .ticket .perf{border-top:2px dashed var(--line);margin:16px 0;}
+  .ticket h3{margin:0 0 2px;font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
+  .ticket .sub-note{font-size:13.5px;color:var(--ink-soft);margin-bottom:6px;}
+  .vax-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--line);}
   .vax-row:last-of-type{border-bottom:none;}
   .vax-row .vax-name{font-weight:700;font-size:14.5px;color:var(--ink);}
-  .vax-tag{
-    flex:none;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;
-    white-space:nowrap;
-  }
-  .vax-tag.walkin{background:#e3f5e9;color:var(--green);}
-  .vax-tag.call{background:#fdeae0;color:var(--accent-dark);}
-  .hero-card ul{margin:14px 0 18px;padding:0;list-style:none;}
-  .hero-card li{
-    display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink);
-    padding:7px 0;border-bottom:1px dashed var(--line);
-  }
-  .hero-card li:last-child{border-bottom:none;}
-  .check{
-    flex:none;width:18px;height:18px;border-radius:50%;background:var(--green);
-    color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px;
-  }
+  .vax-tag{flex:none;font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:2px;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px;}
+  .vax-tag.walkin{background:var(--teal);color:#fff;}
+  .vax-tag.call{background:var(--dark);color:#fff;}
+  .ticket ul{margin:16px 0 20px;padding:0;list-style:none;}
+  .ticket li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink);padding:8px 0;border-bottom:1px solid var(--line);}
+  .ticket li:last-child{border-bottom:none;}
+  .check{flex:none;width:17px;height:17px;border-radius:50%;background:var(--teal);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+
+  /* ---------- Marquee trust ticker ---------- */
+  .ticker-band{background:var(--flame);color:#fff;overflow:hidden;padding:13px 0;border-top:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08);}
+  .ticker-track{display:flex;width:max-content;animation:scrollTicker 26s linear infinite;}
+  .ticker-track span{display:flex;align-items:center;font-weight:700;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;padding:0 28px;white-space:nowrap;}
+  .ticker-track span::after{content:"◆";margin-left:28px;opacity:.6;font-size:10px;}
+  @keyframes scrollTicker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
   /* ---------- Sections ---------- */
-  section{padding:54px 0;}
-  .section-head{max-width:680px;margin:0 auto 36px;text-align:center;}
-  .kicker{
-    color:var(--accent);font-weight:800;font-size:13px;letter-spacing:.6px;
-    text-transform:uppercase;margin-bottom:8px;
-  }
-  h2{font-size:30px;color:var(--navy);margin:0 0 10px;letter-spacing:-.2px;}
-  .section-head p{color:var(--gray);font-size:16px;margin:0;}
+  section{padding:88px 0;position:relative;}
+  .section-head{max-width:640px;margin:0 0 48px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .kicker{color:var(--flame);font-weight:700;font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .kicker::before{content:"";width:26px;height:2px;background:var(--flame);display:inline-block;}
+  .section-head.center .kicker::before{display:none;}
+  h2{font-family:'Fraunces',serif;font-weight:560;font-size:clamp(30px,3.6vw,44px);color:var(--ink);margin:0 0 12px;letter-spacing:-.6px;line-height:1.06;}
+  .section-head p{color:var(--ink-soft);font-size:16.5px;margin:0;max-width:520px;}
 
-  .alt{background:var(--blue-light);}
+  .band-dark{background:var(--dark);color:var(--cream);}
+  .band-dark h2{color:#fff;}
+  .band-dark .section-head p{color:#b9ae9a;}
+  .band-tilt{clip-path:polygon(0 3.5%, 100% 0%, 100% 96.5%, 0% 100%);margin:-40px 0;}
 
-  /* ---------- Benefits / vaccine grid ---------- */
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  .card{
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-    padding:24px;box-shadow:var(--shadow);
-  }
-  .card .icon{
-    width:46px;height:46px;border-radius:12px;background:var(--blue-light);
-    color:var(--blue);display:flex;align-items:center;justify-content:center;
-    font-size:22px;margin-bottom:14px;
-  }
-  .card h3{margin:0 0 6px;font-size:17px;color:var(--navy);}
-  .card p{margin:0 0 12px;color:var(--gray);font-size:14.5px;}
-  .card .vax-tag{display:inline-block;}
+  /* ---------- Vaccine grid (kept as compact cards, but restyled bold) ---------- */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+  .vcard{background:var(--paper);padding:28px;}
+  .vcard .vtag-top{margin-bottom:14px;}
+  .vcard h3{margin:0 0 8px;font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--ink);}
+  .vcard p{margin:0;color:var(--ink-soft);font-size:14.5px;}
 
-  /* ---------- Steps ---------- */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step;}
-  .step{position:relative;padding-left:8px;}
-  .step .num{
-    width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;
-    display:flex;align-items:center;justify-content:center;font-weight:800;
-    font-size:16px;margin-bottom:14px;
-  }
-  .step h3{margin:0 0 6px;font-size:17px;color:var(--navy);}
-  .step p{margin:0;color:var(--gray);font-size:14.5px;}
+  /* ---------- Why: editorial numbered rows ---------- */
+  .row-list{border-top:1px solid var(--line);}
+  .row-item{display:grid;grid-template-columns:110px 1fr 1.1fr;gap:28px;padding:30px 0;border-bottom:1px solid var(--line);align-items:start;}
+  .row-item .rn{font-family:'Fraunces',serif;font-size:44px;font-weight:340;color:var(--flame);line-height:1;opacity:.85;}
+  .row-item h3{margin:0;font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:var(--ink);}
+  .row-item p{margin:6px 0 0;color:var(--ink-soft);font-size:15px;}
+
+  /* ---------- How it works ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;}
+  .step{position:relative;padding:8px 28px;border-left:1px solid var(--line-dark);}
+  .step:first-child{border-left:none;padding-left:0;}
+  .step .num{font-family:'Fraunces',serif;font-size:74px;font-weight:340;color:rgba(255,255,255,.14);line-height:1;margin-bottom:-14px;}
+  .step h3{margin:0 0 8px;font-family:'Fraunces',serif;font-weight:600;font-size:20px;color:#fff;}
+  .step p{margin:0;color:#b9ae9a;font-size:14.5px;}
 
   /* ---------- Insurance ---------- */
-  .insurance-wrap{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;}
-  .pill-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px;}
-  .pill-list li{
-    background:#fff;border:1px solid var(--line);padding:9px 14px;border-radius:999px;
-    font-size:14px;font-weight:600;color:var(--navy);
-  }
-  .note-box{
-    background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);
-    border-radius:10px;padding:16px 18px;font-size:14.5px;color:var(--gray);margin-top:18px;
-  }
+  .insurance-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:0 22px;margin:6px 0 22px;}
+  .tag-row span{font-size:14.5px;font-weight:700;color:var(--ink);padding:9px 0;border-bottom:2px solid var(--flame);}
+  .note-box{border-left:3px solid var(--flame);padding:14px 0 14px 18px;font-size:14.5px;color:var(--ink-soft);}
+  .note-box a{font-weight:700;color:var(--ink);border-bottom:1px solid var(--flame);}
 
-  /* ---------- Testimonial ---------- */
-  .quote-card{
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-    box-shadow:var(--shadow);padding:34px;max-width:760px;margin:0 auto;text-align:center;
-  }
-  .quote-card p.q{font-size:20px;color:var(--navy);font-style:italic;margin:0 0 18px;line-height:1.5;}
-  .quote-card .who{font-weight:700;color:var(--ink);}
-  .quote-card .role{font-size:13.5px;color:var(--gray);}
+  /* ---------- Pull quote ---------- */
+  .pull-quote{position:relative;padding-left:8px;}
+  .pull-quote .qmark{font-family:'Fraunces',serif;font-size:96px;color:var(--flame);line-height:.6;display:block;margin-bottom:6px;opacity:.9;}
+  .pull-quote p.q{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:26px;color:var(--ink);margin:0 0 18px;line-height:1.35;}
+  .pull-quote .who{font-weight:700;color:var(--ink);font-size:15px;}
+  .pull-quote .role{font-size:13.5px;color:var(--ink-soft);}
 
   /* ---------- FAQ ---------- */
-  .faq{max-width:760px;margin:0 auto;}
-  details{
-    background:#fff;border:1px solid var(--line);border-radius:10px;
-    margin-bottom:10px;padding:4px 18px;
-  }
+  .faq{border-top:1px solid var(--line);}
+  details{border-bottom:1px solid var(--line);padding:6px 0;}
   summary{
-    cursor:pointer;font-weight:700;color:var(--navy);padding:14px 0;font-size:15.5px;
-    list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;
+    cursor:pointer;font-weight:600;color:var(--ink);padding:18px 0;font-size:18px;font-family:'Fraunces',serif;
+    list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;
   }
+  summary .fq-n{font-family:'Inter',sans-serif;font-weight:700;color:var(--flame);font-size:13px;margin-right:14px;}
   summary::-webkit-details-marker{display:none;}
-  summary::after{content:"+";font-size:22px;color:var(--accent);flex:none;}
+  summary::after{content:"+";font-size:26px;color:var(--flame);flex:none;font-family:'Inter',sans-serif;font-weight:400;}
   details[open] summary::after{content:"−";}
-  details p{margin:0 0 16px;color:var(--gray);font-size:14.5px;}
+  details p{margin:0 0 22px;color:var(--ink-soft);font-size:15px;max-width:640px;}
 
   /* ---------- Visit / Map ---------- */
-  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
-  .visit-card{
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-    box-shadow:var(--shadow);padding:28px;
+  .visit-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;}
+  .visit-card{background:var(--cream);border:1px solid var(--line);border-radius:4px;padding:32px;position:relative;}
+  .visit-card::before{
+    content:"visit";position:absolute;top:-11px;left:28px;background:var(--flame);color:#fff;
+    font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:2px;
   }
-  .visit-card h3{margin:0 0 14px;color:var(--navy);font-size:18px;}
+  .visit-card h3{margin:8px 0 18px;font-family:'Fraunces',serif;font-weight:600;color:var(--ink);font-size:20px;}
   table.hours{width:100%;border-collapse:collapse;font-size:14.5px;}
-  table.hours td{padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink);}
+  table.hours td{padding:8px 0;border-bottom:1px solid var(--line);color:var(--ink);}
   table.hours tr:last-child td{border-bottom:none;}
-  table.hours td.day{font-weight:600;color:var(--navy);}
-  table.hours td.closed{color:var(--gray);}
-  .addr-line{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:15px;}
-  .addr-line .ic{flex:none;color:var(--accent);font-size:18px;}
-  iframe.map{width:100%;height:100%;min-height:280px;border:0;border-radius:var(--radius);}
+  table.hours td.day{font-weight:700;color:var(--ink);}
+  table.hours td.closed{color:var(--ink-soft);}
+  .addr-line{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;font-size:15px;}
+  .addr-line .ic{flex:none;color:var(--flame);font-size:18px;}
+  .map-frame{border-radius:4px;overflow:hidden;border:1px solid var(--line);}
+  iframe.map{width:100%;height:100%;min-height:300px;border:0;display:block;}
 
   /* ---------- Final CTA ---------- */
-  .final-cta{
-    background:linear-gradient(135deg,var(--navy),var(--blue));
-    color:#fff;border-radius:20px;padding:46px 32px;text-align:center;
+  .final-cta{background:var(--dark);color:#fff;padding:80px 0;text-align:center;position:relative;overflow:hidden;}
+  .final-cta::before{
+    content:"";position:absolute;left:50%;top:0;width:900px;height:900px;
+    background:radial-gradient(circle, rgba(255,90,52,.28), transparent 65%);
+    transform:translate(-50%,-55%);pointer-events:none;
   }
-  .final-cta h2{color:#fff;}
-  .final-cta p{color:#cfe1f2;font-size:16px;max-width:560px;margin:0 auto 26px;}
+  .final-cta .inner{position:relative;z-index:1;}
+  .final-cta h2{color:#fff;font-size:clamp(32px,4.6vw,52px);max-width:720px;margin:0 auto 16px;}
+  .final-cta p{color:#c9beac;font-size:17px;max-width:560px;margin:0 auto 30px;}
   .final-cta .hero-ctas{justify-content:center;}
-  .btn-outline.on-dark{background:transparent;border-color:#fff;color:#fff;}
-  .btn-outline.on-dark:hover{background:rgba(255,255,255,0.12);}
 
   /* ---------- Footer ---------- */
-  footer{padding:34px 0;border-top:1px solid var(--line);}
+  footer{padding:40px 0;background:var(--dark);color:#8f8474;border-top:1px solid rgba(255,255,255,.08);}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-  footer .f-brand{font-weight:800;color:var(--navy);}
-  footer .f-meta{font-size:13px;color:var(--gray);max-width:520px;}
-  footer .f-right{font-size:13px;color:var(--gray);text-align:right;}
+  footer .f-brand{font-family:'Fraunces',serif;font-weight:650;color:#fff;font-size:16px;}
+  footer .f-meta{font-size:12.5px;max-width:520px;}
+  footer .f-right{font-size:12.5px;text-align:right;}
 
   /* ---------- Sticky mobile call bar ---------- */
-  .sticky-bar{
-    display:none;position:fixed;bottom:0;left:0;right:0;z-index:50;
-    background:#fff;border-top:1px solid var(--line);box-shadow:0 -6px 18px rgba(0,0,0,.08);
-    padding:10px 14px;gap:10px;
-  }
+  .sticky-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:50;background:var(--dark);border-top:1px solid rgba(255,255,255,.12);padding:11px 16px;gap:10px;}
   .sticky-bar a{flex:1;}
+  .sticky-bar .btn-outline.on-dark{color:#d9d1c2;border-color:rgba(255,255,255,.3);}
 
   /* ---------- Responsive ---------- */
-  @media (max-width:880px){
-    .hero-grid{grid-template-columns:1fr;}
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;align-items:start;}
     .grid3{grid-template-columns:1fr;}
-    .steps{grid-template-columns:1fr;}
-    .insurance-wrap{grid-template-columns:1fr;}
+    .row-item{grid-template-columns:70px 1fr;}
+    .row-item p{grid-column:2/3;}
+    .steps{grid-template-columns:1fr;gap:36px;}
+    .step{border-left:none;padding-left:0;padding-top:0;}
+    .insurance-wrap{grid-template-columns:1fr;gap:40px;}
     .visit-grid{grid-template-columns:1fr;}
-    h1{font-size:30px;}
     .header-cta{display:none;}
     .sticky-bar{display:flex;}
-    body{padding-bottom:70px;}
+    body{padding-bottom:72px;}
+    .band-tilt{clip-path:polygon(0 2%, 100% 0%, 100% 98%, 0% 100%);}
   }
-  @media (max-width:480px){
-    h1{font-size:25px;}
-    .hero p.lead{font-size:16px;}
-    section{padding:40px 0;}
+  @media (max-width:520px){
+    section{padding:64px 0;}
+    .hero{padding:48px 0 72px;}
+    .ticket{padding:26px 22px 22px;}
   }
 </style>
 </head>
@@ -368,8 +354,8 @@
 <!-- ============ TOP BAR ============ -->
 <div class="topbar">
   <div class="wrap">
-    <span class="badge">📍 1253 N Vine St, Hollywood · Open Mon–Fri, 9 AM–6 PM</span>
-    <a class="phone" href="tel:+13239579446" onclick="trackConversion('call_topbar')">📞 (323) 957-9446</a>
+    <span class="badge">1253 N Vine St, Hollywood — Open Mon–Fri, 9 AM–6 PM</span>
+    <a class="phone" href="tel:+13239579446" onclick="trackConversion('call_topbar')">(323) 957-9446</a>
   </div>
 </div>
 
@@ -378,15 +364,15 @@
   <div class="wrap">
     <div class="brand">
       <div class="mark">
-        <svg viewBox="0 0 512 512" width="24" height="24" aria-hidden="true">
-          <rect x="100" y="196" width="312" height="120" rx="28" fill="#ffffff"/>
-          <rect x="196" y="100" width="120" height="312" rx="28" fill="#ffffff"/>
-          <circle cx="372" cy="372" r="54" fill="#e0622a"/>
+        <svg viewBox="0 0 512 512" width="22" height="22" aria-hidden="true">
+          <rect x="100" y="196" width="312" height="120" rx="24" fill="#ffffff"/>
+          <rect x="196" y="100" width="120" height="312" rx="24" fill="#ffffff"/>
+          <circle cx="372" cy="372" r="52" fill="#ff5a34"/>
         </svg>
       </div>
       <div>
         <div class="name">Vine Vaccination Clinic</div>
-        <div class="sub">Hollywood's Neighborhood Vaccination Clinic Since 2003</div>
+        <div class="sub">Hollywood Since 2003</div>
       </div>
     </div>
     <div class="header-cta">
@@ -397,26 +383,20 @@
 </header>
 
 <!-- ============ HERO ============ -->
-<section class="hero">
+<section class="hero grain">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">Now Available — Hollywood, CA 90038</span>
-      <h1>Tetanus, Hepatitis B &amp; Shingles Vaccines in <span class="hl">Hollywood.</span></h1>
+      <span class="eyebrow">Now Available · Hollywood, CA 90038</span>
+      <h1>Tetanus. Hepatitis B.<br>Shingles.<br><span class="hl">One trusted clinic.</span></h1>
       <p class="lead">Get protected at Vine Vaccination Clinic. Walk in for your tetanus shot — or call ahead to schedule your Hepatitis B or Shingles vaccine. Most insurance covers your visit at $0 cost.</p>
       <div class="hero-ctas">
-        <a class="btn btn-accent btn-pulse" href="tel:+13239579446" onclick="trackConversion('call_hero')">📞 Call (323) 957-9446</a>
-        <a class="btn btn-outline" href="https://www.google.com/maps/place/Vine+Discount+Pharmacy+and+Medical+Supply/@34.0940624,-118.3294608,17z/data=!3m2!4b1!5s0x80c2bf36bc282789:0xba4be7dd5b04bbfa!4m6!3m5!1s0x80c2bf369618ace7:0x551a01c4dfb202f9!8m2!3d34.0940624!4d-118.3268805!16s%2Fg%2F1tgcmkgh?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" onclick="trackConversion('directions_hero')">📍 Get Directions</a>
+        <a class="btn btn-accent btn-pulse" href="tel:+13239579446" onclick="trackConversion('call_hero')">Call (323) 957-9446</a>
+        <a class="btn btn-outline on-dark" href="https://www.google.com/maps/place/Vine+Discount+Pharmacy+and+Medical+Supply/@34.0940624,-118.3294608,17z/data=!3m2!4b1!5s0x80c2bf36bc282789:0xba4be7dd5b04bbfa!4m6!3m5!1s0x80c2bf369618ace7:0x551a01c4dfb202f9!8m2!3d34.0940624!4d-118.3268805!16s%2Fg%2F1tgcmkgh?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" onclick="trackConversion('directions_hero')">Get Directions</a>
       </div>
-      <p class="reassure"><b>Walk in for tetanus</b> · Call ahead for Hepatitis B &amp; Shingles · Open Mon–Fri, 9 AM–6 PM</p>
-
-      <div class="trust-row">
-        <div class="trust-chip"><span class="dot"></span>Serving Hollywood Since 2003</div>
-        <div class="trust-chip"><span class="dot"></span>Pharmacist-Administered Vaccines</div>
-        <div class="trust-chip"><span class="dot"></span>Most Insurance Accepted</div>
-      </div>
+      <p class="reassure"><b>Walk in for tetanus</b> — Call ahead for Hepatitis B &amp; Shingles — Open Mon–Fri, 9 AM–6 PM</p>
     </div>
 
-    <div class="hero-card">
+    <div class="ticket">
       <h3>Which Vaccine Do You Need?</h3>
       <p class="sub-note">Tap call to confirm availability and get scheduled.</p>
 
@@ -435,7 +415,7 @@
 
       <ul>
         <li><span class="check">✓</span> Medicare Part B &amp; D, Medi-Cal, and most commercial plans accepted</li>
-        <li><span class="check">✓</span> Cash price available if you're uninsured — ask our pharmacist</li>
+        <li><span class="check">✓</span> Cash price available if you're uninsured</li>
         <li><span class="check">✓</span> Administered by a licensed pharmacist</li>
       </ul>
       <a class="btn btn-accent btn-block" href="tel:+13239579446" onclick="trackConversion('call_card')">Call to Check Availability</a>
@@ -443,73 +423,84 @@
   </div>
 </section>
 
+<!-- ============ TICKER ============ -->
+<div class="ticker-band">
+  <div class="ticker-track">
+    <span>Serving Hollywood Since 2003</span>
+    <span>Pharmacist-Administered Vaccines</span>
+    <span>Most Insurance Accepted</span>
+    <span>Three Vaccines, One Clinic</span>
+    <span>Serving Hollywood Since 2003</span>
+    <span>Pharmacist-Administered Vaccines</span>
+    <span>Most Insurance Accepted</span>
+    <span>Three Vaccines, One Clinic</span>
+  </div>
+</div>
+
 <!-- ============ OUR VACCINES ============ -->
 <section>
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Our Vaccines</div>
-      <h2>Three Vaccines, One Trusted Clinic</h2>
+      <h2>Three vaccines, one trusted clinic.</h2>
       <p>Each vaccine has its own path in the door — here's what to expect for each.</p>
     </div>
     <div class="grid3">
-      <div class="card">
-        <div class="icon">🩹</div>
+      <div class="vcard">
+        <div class="vtag-top"><span class="vax-tag walkin">Walk-In — No Appointment</span></div>
         <h3>Tetanus (Tdap/Td)</h3>
         <p>Protects against tetanus, diphtheria, and whooping cough. Recommended every 10 years — or sooner after a deep cut, puncture wound, or animal bite.</p>
-        <span class="vax-tag walkin">Walk-In — No Appointment</span>
       </div>
-      <div class="card">
-        <div class="icon">🛡️</div>
+      <div class="vcard">
+        <div class="vtag-top"><span class="vax-tag call">Call Ahead to Schedule</span></div>
         <h3>Hepatitis B</h3>
         <p>Protects against Hepatitis B, a serious liver infection. Often recommended for healthcare workers, travelers, and those with increased exposure risk.</p>
-        <span class="vax-tag call">Call Ahead to Schedule</span>
       </div>
-      <div class="card">
-        <div class="icon">💊</div>
+      <div class="vcard">
+        <div class="vtag-top"><span class="vax-tag call">Call Ahead to Schedule</span></div>
         <h3>Shingles (Shingrix)</h3>
         <p>Recommended for adults 50 and older to prevent shingles and its complications. Given as a 2-dose series, a few months apart.</p>
-        <span class="vax-tag call">Call Ahead to Schedule</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ WHY ============ -->
-<section class="alt">
+<section style="background:var(--paper-2);">
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Why Vine Vaccination Clinic</div>
-      <h2>Protection Made Simple in Hollywood</h2>
+      <h2>Protection made simple in Hollywood.</h2>
       <p>A real neighborhood clinic on Vine Street — not a hospital, not a chain, not a hassle.</p>
     </div>
-    <div class="grid3">
-      <div class="card">
-        <div class="icon">📅</div>
+    <div class="row-list">
+      <div class="row-item">
+        <div class="rn serif">01</div>
         <h3>Walk In or Call Ahead</h3>
         <p>Tetanus shots are walk-in, no appointment needed. Hepatitis B and Shingles just need a quick call first to confirm stock and set a time.</p>
       </div>
-      <div class="card">
-        <div class="icon">💳</div>
+      <div class="row-item">
+        <div class="rn serif">02</div>
         <h3>$0 With Most Insurance</h3>
         <p>Medicare Part B &amp; D, Medi-Cal, and most major commercial plans cover recommended vaccines. We verify your coverage before your visit.</p>
       </div>
-      <div class="card">
-        <div class="icon">📍</div>
+      <div class="row-item">
+        <div class="rn serif">03</div>
         <h3>Right in Hollywood</h3>
         <p>1253 N Vine St, at the corner of Vine &amp; Fountain — steps from Capitol Records. Easy to find, easy to park.</p>
       </div>
-      <div class="card">
-        <div class="icon">🩺</div>
+      <div class="row-item">
+        <div class="rn serif">04</div>
         <h3>Licensed Pharmacist On-Site</h3>
         <p>Vaccinations are administered by our pharmacist, Roseanne Papoyan, PharmD — not a rotating cast of strangers.</p>
       </div>
-      <div class="card">
-        <div class="icon">🏅</div>
+      <div class="row-item">
+        <div class="rn serif">05</div>
         <h3>Backed by a National Network</h3>
         <p>We combine the resources of a national healthcare network with the personal, name-by-name care of an independent neighborhood clinic.</p>
       </div>
-      <div class="card">
-        <div class="icon">🤝</div>
+      <div class="row-item">
+        <div class="rn serif">06</div>
         <h3>Trusted Since 2003</h3>
         <p>Hollywood families have relied on us for over two decades — caring, honest, and personal care.</p>
       </div>
@@ -518,50 +509,53 @@
 </section>
 
 <!-- ============ HOW IT WORKS ============ -->
-<section>
+<div class="band-tilt">
+<section class="band-dark grain">
   <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">How It Works</div>
-      <h2>Getting Vaccinated in 3 Simple Steps</h2>
+    <div class="section-head center">
+      <div class="kicker" style="justify-content:center;">How It Works</div>
+      <h2>Getting vaccinated in three simple steps.</h2>
     </div>
     <div class="steps">
       <div class="step">
-        <div class="num">1</div>
+        <div class="num serif">1</div>
         <h3>Call or Walk In</h3>
         <p>Walk in anytime for a tetanus shot. For Hepatitis B or Shingles, give us a quick call first to confirm availability and set a time.</p>
       </div>
       <div class="step">
-        <div class="num">2</div>
+        <div class="num serif">2</div>
         <h3>Bring ID &amp; Insurance Card</h3>
         <p>We'll verify your coverage on the spot. Uninsured? Ask about our cash price.</p>
       </div>
       <div class="step">
-        <div class="num">3</div>
+        <div class="num serif">3</div>
         <h3>Get Vaccinated</h3>
         <p>Our pharmacist administers your vaccine in just a few minutes. You're protected and on your way.</p>
       </div>
     </div>
   </div>
 </section>
+</div>
 
 <!-- ============ INSURANCE ============ -->
-<section id="insurance" class="alt">
+<section id="insurance">
   <div class="wrap insurance-wrap">
     <div>
       <div class="kicker">Coverage</div>
-      <h2>Insurance We Accept</h2>
-      <p style="color:var(--gray);font-size:16px;margin-bottom:18px;">Most major insurance plans cover recommended vaccines at little to no cost. Coverage varies by vaccine and plan — we verify your specific benefits when you call or visit.</p>
-      <ul class="pill-list">
-        <li>Medicare Part B</li>
-        <li>Medicare Part D</li>
-        <li>Medi-Cal</li>
-        <li>Most Commercial Plans</li>
-        <li>Cash Price Available</li>
-      </ul>
-      <div class="note-box">Not sure if your plan covers your vaccine? Call us at <a href="tel:+13239579446" style="color:var(--navy);font-weight:700;" onclick="trackConversion('call_insurance')">(323) 957-9446</a> and we'll check before you come in.</div>
+      <h2>Insurance we accept.</h2>
+      <p style="color:var(--ink-soft);font-size:16.5px;margin-bottom:20px;">Most major insurance plans cover recommended vaccines at little to no cost. Coverage varies by vaccine and plan — we verify your specific benefits when you call or visit.</p>
+      <div class="tag-row">
+        <span>Medicare Part B</span>
+        <span>Medicare Part D</span>
+        <span>Medi-Cal</span>
+        <span>Most Commercial Plans</span>
+        <span>Cash Price Available</span>
+      </div>
+      <div class="note-box">Not sure if your plan covers your vaccine? Call us at <a href="tel:+13239579446" onclick="trackConversion('call_insurance')">(323) 957-9446</a> and we'll check before you come in.</div>
     </div>
-    <div class="quote-card">
-      <p class="q">"Caring, honest, respectful, and friendly — that's our commitment to every patient who walks through our door."</p>
+    <div class="pull-quote">
+      <span class="qmark serif">&ldquo;</span>
+      <p class="q">Caring, honest, respectful, and friendly — that's our commitment to every patient who walks through our door.</p>
       <div class="who">Roseanne Papoyan, PharmD</div>
       <div class="role">Pharmacist · Vine Vaccination Clinic</div>
     </div>
@@ -569,35 +563,35 @@
 </section>
 
 <!-- ============ FAQ ============ -->
-<section id="faq">
+<section id="faq" style="background:var(--paper-2);">
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Common Questions</div>
-      <h2>Vaccine FAQs</h2>
+      <h2>Vaccine FAQs.</h2>
     </div>
     <div class="faq">
       <details open>
-        <summary>Do I need an appointment?</summary>
+        <summary><span><span class="fq-n">01</span>Do I need an appointment?</span></summary>
         <p>Tetanus (Tdap/Td) shots are walk-in — no appointment needed. Hepatitis B and Shingles vaccines require calling ahead so we can confirm stock and schedule your visit.</p>
       </details>
       <details>
-        <summary>I have a cut or puncture wound — do I need a tetanus shot?</summary>
+        <summary><span><span class="fq-n">02</span>I have a cut or puncture wound — do I need a tetanus shot?</span></summary>
         <p>If it's been more than 5 years since your last tetanus shot and you have a deep or dirty wound, a booster is often recommended. Walk in any time we're open — no appointment necessary. For serious wounds, seek emergency care first.</p>
       </details>
       <details>
-        <summary>How many doses of the Shingles vaccine do I need?</summary>
+        <summary><span><span class="fq-n">03</span>How many doses of the Shingles vaccine do I need?</span></summary>
         <p>Shingrix is given as a 2-dose series, typically 2 to 6 months apart. Call ahead to schedule both doses.</p>
       </details>
       <details>
-        <summary>Who needs the Hepatitis B vaccine?</summary>
+        <summary><span><span class="fq-n">04</span>Who needs the Hepatitis B vaccine?</span></summary>
         <p>Hepatitis B vaccination is often recommended for healthcare workers, travelers to certain countries, and anyone with increased exposure risk. Call us and we can help you figure out if it's right for you.</p>
       </details>
       <details>
-        <summary>How much do these vaccines cost?</summary>
+        <summary><span><span class="fq-n">05</span>How much do these vaccines cost?</span></summary>
         <p>Most major insurance plans — including Medicare Part B, Medicare Part D, Medi-Cal, and commercial plans — cover recommended vaccines at little to no cost. If you're uninsured, a cash price is available; ask our pharmacist.</p>
       </details>
       <details>
-        <summary>Where is the clinic located?</summary>
+        <summary><span><span class="fq-n">06</span>Where is the clinic located?</span></summary>
         <p>We're at 1253 N Vine St, Suite 11, Los Angeles, CA 90038 — the corner of Vine &amp; Fountain, steps from Capitol Records and the Hollywood Pantages Theatre.</p>
       </details>
     </div>
@@ -605,17 +599,17 @@
 </section>
 
 <!-- ============ VISIT / MAP ============ -->
-<section id="visit" class="alt">
+<section id="visit">
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Visit Us</div>
-      <h2>Find Us on Vine Street</h2>
+      <h2>Find us on Vine Street.</h2>
     </div>
     <div class="visit-grid">
       <div class="visit-card">
         <h3>Location &amp; Hours</h3>
-        <div class="addr-line"><span class="ic">📍</span><span>1253 N Vine St, Suite 11<br>Los Angeles, CA 90038<br>Corner of Vine &amp; Fountain Ave</span></div>
-        <div class="addr-line"><span class="ic">📞</span><a href="tel:+13239579446" onclick="trackConversion('call_visit')">(323) 957-9446</a></div>
+        <div class="addr-line"><span class="ic">→</span><span>1253 N Vine St, Suite 11<br>Los Angeles, CA 90038<br>Corner of Vine &amp; Fountain Ave</span></div>
+        <div class="addr-line"><span class="ic">→</span><a href="tel:+13239579446" onclick="trackConversion('call_visit')">(323) 957-9446</a></div>
         <table class="hours">
           <tr><td class="day">Monday</td><td>9:00 AM – 6:00 PM</td></tr>
           <tr><td class="day">Tuesday</td><td>9:00 AM – 6:00 PM</td></tr>
@@ -625,28 +619,28 @@
           <tr><td class="day">Saturday</td><td class="closed">Closed</td></tr>
           <tr><td class="day">Sunday</td><td class="closed">Closed</td></tr>
         </table>
-        <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;">
+        <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;">
           <a class="btn btn-accent btn-sm" href="tel:+13239579446" onclick="trackConversion('call_visit_btn')">Call Now</a>
           <a class="btn btn-outline btn-sm" href="https://www.google.com/maps/place/Vine+Discount+Pharmacy+and+Medical+Supply/@34.0940624,-118.3294608,17z/data=!3m2!4b1!5s0x80c2bf36bc282789:0xba4be7dd5b04bbfa!4m6!3m5!1s0x80c2bf369618ace7:0x551a01c4dfb202f9!8m2!3d34.0940624!4d-118.3268805!16s%2Fg%2F1tgcmkgh?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" onclick="trackConversion('directions_visit_btn')">Get Directions</a>
         </div>
       </div>
-      <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=1253+N+Vine+St+Ste+11+Los+Angeles+CA+90038&output=embed">
-      </iframe>
+      <div class="map-frame">
+        <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=1253+N+Vine+St+Ste+11+Los+Angeles+CA+90038&output=embed">
+        </iframe>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ FINAL CTA ============ -->
-<section>
-  <div class="wrap">
-    <div class="final-cta">
-      <h2>Don't Wait to Get Protected</h2>
-      <p>Walk in for your tetanus shot, or call ahead to schedule your Hepatitis B or Shingles vaccine — most insurance covers your visit at $0.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-accent" href="tel:+13239579446" onclick="trackConversion('call_final')">📞 Call (323) 957-9446</a>
-        <a class="btn btn-outline on-dark" href="https://www.google.com/maps/place/Vine+Discount+Pharmacy+and+Medical+Supply/@34.0940624,-118.3294608,17z/data=!3m2!4b1!5s0x80c2bf36bc282789:0xba4be7dd5b04bbfa!4m6!3m5!1s0x80c2bf369618ace7:0x551a01c4dfb202f9!8m2!3d34.0940624!4d-118.3268805!16s%2Fg%2F1tgcmkgh?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" onclick="trackConversion('directions_final')">📍 Get Directions</a>
-      </div>
+<section class="final-cta grain">
+  <div class="wrap inner">
+    <h2>Don't wait to get protected.</h2>
+    <p>Walk in for your tetanus shot, or call ahead to schedule your Hepatitis B or Shingles vaccine — most insurance covers your visit at $0.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-accent" href="tel:+13239579446" onclick="trackConversion('call_final')">Call (323) 957-9446</a>
+      <a class="btn btn-outline on-dark" href="https://www.google.com/maps/place/Vine+Discount+Pharmacy+and+Medical+Supply/@34.0940624,-118.3294608,17z/data=!3m2!4b1!5s0x80c2bf36bc282789:0xba4be7dd5b04bbfa!4m6!3m5!1s0x80c2bf369618ace7:0x551a01c4dfb202f9!8m2!3d34.0940624!4d-118.3268805!16s%2Fg%2F1tgcmkgh?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" onclick="trackConversion('directions_final')">Get Directions</a>
     </div>
   </div>
 </section>
@@ -668,8 +662,8 @@
 
 <!-- ============ STICKY MOBILE BAR ============ -->
 <div class="sticky-bar">
-  <a class="btn btn-outline btn-sm" href="https://www.google.com/maps/place/Vine+Discount+Pharmacy+and+Medical+Supply/@34.0940624,-118.3294608,17z/data=!3m2!4b1!5s0x80c2bf36bc282789:0xba4be7dd5b04bbfa!4m6!3m5!1s0x80c2bf369618ace7:0x551a01c4dfb202f9!8m2!3d34.0940624!4d-118.3268805!16s%2Fg%2F1tgcmkgh?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" onclick="trackConversion('directions_sticky')">📍 Directions</a>
-  <a class="btn btn-accent btn-sm btn-pulse" href="tel:+13239579446" onclick="trackConversion('call_sticky')">📞 Call Now</a>
+  <a class="btn btn-outline btn-sm on-dark" href="https://www.google.com/maps/place/Vine+Discount+Pharmacy+and+Medical+Supply/@34.0940624,-118.3294608,17z/data=!3m2!4b1!5s0x80c2bf36bc282789:0xba4be7dd5b04bbfa!4m6!3m5!1s0x80c2bf369618ace7:0x551a01c4dfb202f9!8m2!3d34.0940624!4d-118.3268805!16s%2Fg%2F1tgcmkgh?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" onclick="trackConversion('directions_sticky')">Directions</a>
+  <a class="btn btn-accent btn-sm btn-pulse" href="tel:+13239579446" onclick="trackConversion('call_sticky')">Call Now</a>
 </div>
 
 <script>
